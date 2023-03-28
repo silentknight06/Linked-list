@@ -7,12 +7,13 @@ void insert(Node** root, int item)
     temp->data = item;
     temp->next = NULL;
   
-    if (*root == NULL)
+    if (*root == NULL){
         *root = temp;
-    else {
+    }else {
         ptr = *root;
-        while (ptr->next != NULL)
+        while (ptr->next != NULL){
             ptr = ptr->next;
+            }
         ptr->next = temp;
     }
 }
