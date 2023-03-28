@@ -1,0 +1,67 @@
+
+....................methord-1(using vector)............................ TC  = O(n); SC + O(n);...............................
+
+#include<vector>
+class Solution {
+public:
+ void insert(ListNode** root, int item)
+{
+    ListNode* temp = new ListNode;
+    temp->val = item;
+    temp->next = *root;
+    *root = temp;
+}
+
+
+
+    ListNode* reverseList(ListNode* head) {
+        vector<int> v;
+        ListNode *temp = head;
+        while(temp != NULL){
+           v.push_back(temp->val);
+           temp = temp->next;
+        }
+
+        reverse(v.begin(), v.end());
+           ListNode *root = NULL;
+           int n = v.size();
+    for (int i = n-1; i >= 0 ; i--)
+        insert(&root, v[i]);
+    return root;
+        
+    }
+};
+
+........................ methord 2(two pointer approch )............... TC: O(n) and SC: O(1).............................
+
+    ListNode* reverseList(ListNode* head) {
+         ListNode *prev = NULL;
+         ListNode *curr  = head;
+         ListNode *next = NULL;
+         while(curr != NULL){
+             next = curr->next;
+             curr->next = prev;
+             prev = curr;
+             curr = next;
+         }
+         return prev;
+    }
+
+
+
+methord 3(recursive approch) TC = O(n) and SC + O(N);.............................................................
+
+ ListNode* reverseList(ListNode* head) {
+        if(head==NULL|| head->next ==NULL){
+            return head;
+        }
+     ListNode *temp = head;
+     ListNode *headnext = head->next;
+     ListNode *chota = reverseList(headnext);
+    headnext->next = temp;
+    temp->next = NULL;
+return chota;
+    }
+
+
+
