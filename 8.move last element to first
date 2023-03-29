@@ -1,0 +1,16 @@
+   ListNode *moveToFront(ListNode *head){
+        if(head==NULL || head->next ==NULL){
+            return head;
+        }
+        ListNode *temp  = head;
+        ListNode *prev = NULL;
+        while(temp->next != NULL){
+            prev = temp;
+            temp = temp->next;
+        }
+        // ab last ko first se connect kar rahe h 
+        temp->next = head;
+        prev->next = NULL;
+        // now an last ko head se start kr diy eh so we can return temp as a head;
+         return temp;
+    }
