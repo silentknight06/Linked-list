@@ -1,0 +1,22 @@
+  Using MAp................TC-> O(n) and SC=> O(N)
+  
+  Node * removeDuplicates( Node *head) 
+    {
+     // your code goes here
+     Node *curr = head;
+     Node *prev = NULL;
+     map<int, bool> m;
+     while(curr != NULL){
+         if(m[curr->data] == true){
+             prev->next = curr->next;
+             delete curr;
+             curr = curr->next;
+         }else{
+             m[curr->data] = true;
+             prev = curr;
+             curr = curr->next;
+         }
+    
+     }
+     return head;
+    }
