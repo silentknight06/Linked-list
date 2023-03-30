@@ -1,0 +1,45 @@
+  Node *reverse(Node*head)
+    { if(head==NULL|| head->next==NULL)
+       {
+           return head;
+       }
+        Node *curr= head;
+        Node *prev=NULL;
+        Node* forward=NULL;
+        while(curr!=NULL)
+        {
+            forward = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = forward;
+        }
+        return prev;
+    }
+    Node* addOne(Node *head) 
+    {
+      head= reverse(head);
+      Node* temp= head;
+      while(temp!=NULL)
+      {
+      if(temp->data==9&&temp->next==NULL)
+      {
+          temp->data=1;
+          Node *t= new Node(0);
+          t->next= head;
+          head=t;
+      }
+      else if(temp->data==9)
+      {
+          temp->data=0;
+      }
+      else
+      {
+          temp->data= temp->data+1;
+          break;
+      }
+       temp= temp->next;
+      }
+      head = reverse(head);
+      return head;
+        
+    }
