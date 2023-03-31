@@ -1,3 +1,7 @@
+// isme pahke dono ka  length lenge or check karenge kon sa wala bara h or kitna jitna bara hog autna aage chale jayenge ....then we compare one to another not value 
+here we are comparing two node
+
+
 int intersectPoint(Node* head1, Node* head2)
 {
     // Your Code Here
