@@ -1,0 +1,35 @@
+int intersectPoint(Node* head1, Node* head2)
+{
+    // Your Code Here
+    Node *h1 = head1;
+    Node *h2 = head2;
+   
+   int count  = 0;
+   while(h1){
+       count++;
+       h1 = h1->next;
+   }
+   int count2 = 0;
+   while(h2){
+       count2++;
+       h2 = h2->next;
+   }
+   int dif = abs(count-count2);
+   Node *ptr1 = head1;
+   Node *ptr2 = head2;
+   if(count >count2){
+       for(int i = 0; i<dif; i++){
+       ptr1 = ptr1->next;
+       }
+   }else if(count<count2){
+        for(int i = 0; i<dif; i++){
+       ptr2 = ptr2->next;
+       }
+   }
+   while(ptr1 != ptr2){
+   ptr1 = ptr1->next;
+   ptr2 = ptr2->next;
+   }
+   if(ptr1 != NULL)return ptr1->data;
+   else return -1;
+}
