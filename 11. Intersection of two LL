@@ -1,0 +1,28 @@
+
+Node* findIntersection(Node* head1, Node* head2)
+{
+   // Your Code Here
+   Node *dum=new Node(-1);
+   Node*ans=dum;
+   Node*first=head1;
+    Node*sec=head2;
+   while(first and sec) 
+    {
+        if(first->data==sec->data)
+        {
+            ans->next=new Node(first->data);
+            ans=ans->next;
+            first=first->next;
+            sec=sec->next;
+            
+        }         
+        else if(first->data>sec->data)
+        sec=sec->next;
+        
+        else if(first->data<sec->data)
+        first=first->next;
+        
+    }
+    return dum->next;
+    
+}
