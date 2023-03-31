@@ -1,0 +1,35 @@
+
+M-1 (using map) T.C => O(N) and SC => O(n)
+
+
+class Solution {
+public:
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        unordered_map<ListNode*, int> mp;
+
+        ListNode* temp = headA;
+
+        //LL A nodes stored inside the map
+        while(temp){
+            mp[temp]++;
+            temp = temp->next;
+        }
+
+        //LL B traversal
+        temp = headB;
+        while(temp){
+            if(mp.find(temp) != mp.end())
+                return temp;
+
+            temp = temp->next;
+        }
+
+        return NULL;
+    }
+};
+
+M->2 (sort the both LL and then traverse )
+TC=> O(nlogn) and SC=> O(1)
+
+ m=> 3 using two for loop 
+ O(n2) and sc= > O(1);
