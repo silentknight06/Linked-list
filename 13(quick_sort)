@@ -1,0 +1,63 @@
+M-1(using vector>
+
+int partition (int a[], int low, int high)
+{
+   int pivot=a[low];
+   int i=low;
+   int j=high;
+
+   while(i<j)
+   {
+       do{
+           i++;
+       }while (a[i]<pivot);
+
+       do
+       {
+           j--;
+       } while (a[j]>pivot);
+
+       if (i<j)
+       {
+           swap(a[i],a[j]);
+       }
+       
+   }
+   swap(a[low],a[j]);
+   return j;
+}
+
+void Quick_sort(int a[], int low, int high)
+{
+   if (low<high)
+   {
+       /* code */
+       int p=partition(a,low,high);
+       Quick_sort(a,low,p);
+       Quick_sort(a,p+1,high);
+   }
+}
+
+//you have to complete this function
+void quickSort(struct node **headRef) 
+{
+   int i=0,n=0;
+   struct node *temp=*headRef;
+   int arr[99999];
+   
+   while(temp!=NULL)
+   {
+       arr[i]=temp->data;
+       temp=temp->next;
+       i++;
+   }
+   Quick_sort(arr,0,i);
+   
+   n=i;
+   temp=*headRef;
+   for(i=0;i<n;i++)
+   {
+       temp->data=arr[i];
+       temp=temp->next;
+   }
+}
