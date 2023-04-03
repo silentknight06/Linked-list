@@ -19,3 +19,75 @@ int countTriplets(struct Node* head, int x)
     // required count of triplets
     return count;
 }
+
+
+
+/////////////////////////////////
+ isme ham ak array me vlaue ko store kar raheh isek bad use array wala approch se kar rahe h
+
+
+t countTriplets(struct Node* head, int x) 
+
+{ 
+
+    vector<int>v;
+
+    Node* temp=head;
+
+    while(temp!=NULL){
+
+        v.push_back(temp->data);
+
+        temp = temp->next;
+
+    }
+
+    
+
+    
+
+    int k=1;
+
+    int count=0;
+
+    
+
+    while(k<(v.size()-1)){
+
+        int i =0;
+
+        int j=v.size()-1;
+
+        while(i<k and k<j){
+
+            if((v[i]+v[k]+v[j])==x){
+
+                count++;
+
+                i++;
+
+                j--;
+
+            }
+
+            else if((v[i]+v[k]+v[j])<x){
+
+                i++;
+
+            }
+
+            else{
+
+                j--;
+
+            }
+
+        }
+
+        k++;
+
+    }
+
+    return count;
+
+} 
