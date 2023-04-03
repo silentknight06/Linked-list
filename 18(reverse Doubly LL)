@@ -1,3 +1,7 @@
+
+// isme ham like jaise 2 value ko swap karte h h waise hi ham prev or next ke value ko swap karenge  bss or kuch nahi
+
+
 Node* reverseDLL(Node * head)
 {
      if(head==NULL||head->next==NULL)
