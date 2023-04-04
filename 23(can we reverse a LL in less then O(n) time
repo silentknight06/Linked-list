@@ -1,0 +1,9 @@
+
+Can we reverse linked list in less than n time complexity?
+If you are asking about Singly linked list then you cannot reverse it in less than O(n). But a Doubly linked list can be reversed in O(1) time
+
+HOw ?
+
+A doubly linked list with head and tail pointers while only requiring swapping the head and tail pointers
+which require lesser operations than a singly linked list can also not be done in less than O(n)
+since we need to traverse till the end of the list anyway to find the tail node.
