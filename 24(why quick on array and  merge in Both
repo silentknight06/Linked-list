@@ -1,0 +1,5 @@
+why quick sort is only performed in array and merge sort in linked list?
+
+ans->Merge sort for linked lists is preferred to sort linked lists because accessing a random node in a linked list is a costly operation 
+which makes other algorithms like quicksort, heapsort, etc inefficient. The algorithm of merge sort for linked lists is quite similar to sorting 
+an array using merge sort.
