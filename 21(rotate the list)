@@ -1,0 +1,35 @@
+
+
+
+ ListNode* rotateRight(ListNode* head, int k) {
+if(head==NULL || head->next==NULL || k==0){
+    return head;
+}
+
+       int c=0;
+       ListNode* temp=head;
+       while(temp)
+       {
+           c++;
+           temp=temp->next;
+       }
+
+       int z=k%c;// qki if  LL ka size 5 h or rotate karne ke liye wo 7 bar bolega toh ham 2 bar rotate karke chor sakte h
+
+        for(int i = 1; i<=z; i++){
+        ListNode *temp = head;
+        ListNode *prev = NULL;
+        while(temp->next != NULL){
+            prev = temp;
+            temp = temp->next;
+        }
+      
+        temp->next = head;
+        prev->next = NULL;
+
+        // temp = head;
+        head  = temp;
+    }
+    return head;
+    }
+   
