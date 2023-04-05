@@ -1,0 +1,46 @@
+
+/////////   M-1 isem ham sabo vector me store karke merger kar denge sort ho jayega 
+////////    M-2 isme ham first and second ko ak me sort karenge phir use third ko sort karenge aishe hi karte jayenge like previous wn me kiye the
+///////    M-3 isme ham first and last ko sort karke first me rakhenge ..ohir 2nd or 2ndlast ko sort karke 2nd me rakehenhe ..phir 3rd last or 3rd ko sortlarke 3rdme rakhenge 
+aishe hi karte rahenge.... you can see  on my code
+
+
+
+class Solution{
+  public:
+  
+  Node *smerge(Node *a, Node *b){
+      Node *result = NULL;
+      if(a==NULL )return (b);
+      else if(b==NULL) return (a);
+      if(a->data<=b->data){
+          result = a;
+          result->next = smerge(a->next, b);
+      }else{
+          result = b;
+          result->next = smerge(a, b->next);
+      }
+      return result;
+  }
+  
+    //Function to merge K sorted linked list.
+    Node * mergeKLists(Node *arr[], int K)
+    {
+           // Your code here
+           int i = 0; 
+           int last = K-1;
+           int j;
+           while(last != 0){
+               int i = 0; j= last;
+               while(i<j){
+                   arr[i] = smerge(arr[i], arr[j]);
+                   i++;
+                   j--;
+                   if(i>=j){
+                       last = j;
+                   }
+               }
+           }
+           return arr[0];
+    }
+};
