@@ -1,0 +1,42 @@
+ // even wala alg or add wala alg kstore kar lenge phir dono ko add kar denge
+ 
+ 
+ 
+ Node* divide(int N, Node *head){
+        // code here
+        Node *even = NULL;
+        Node *odd = NULL;
+        Node *e = NULL;
+        Node *o = NULL;
+        while(head){
+            if(head->data %2==0){
+                if(even==NULL){
+                    even = head;
+                    e = head;
+                }else{
+                    e->next = head;
+                    e = e->next;
+                }
+            }
+            else{
+                if(odd==NULL){
+                    odd = head;
+                    o = head;
+                }else{
+                    o->next = head;
+                    o = o->next;
+                }
+            }
+            head = head->next;
+        }
+        if(e!= NULL){
+            e->next = odd;
+        }
+        if(o!= NULL){
+            o->next = NULL;
+        }
+        if(even){
+            return even;
+        }else
+        return odd;
+    }
