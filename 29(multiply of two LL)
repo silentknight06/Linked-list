@@ -1,0 +1,19 @@
+
+
+
+long long  multiplyTwoLists (Node* l1, Node* l2)
+{
+  //Your code here
+  long long int s1 =0, s2 = 0;
+  while(l1){
+      s1 = s1*10+(l1->data);
+      s1 = s1%1000000007;
+      l1 = l1->next;
+  }
+  while(l2){
+      s2 = s2*10+(l2->data);
+      s2 = s2%1000000007;
+      l2 = l2->next;
+  }
+  return (s1*s2)%1000000007;
+}
