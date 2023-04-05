@@ -1,0 +1,49 @@
+
+
+
+ Node *compute(Node *head)
+    {
+        Node*temp=head;
+        while((temp->next)!=NULL)
+        {
+            if((temp->data)<(temp->next->data))
+            {
+                temp->data=temp->next->data;// next kea vlue ko piche la rah eh 
+                Node*d=temp->next;// next ke value ko store kar lete h qki ab ise delet ekarna h
+                temp->next=temp->next->next;// yaha ham useke aaga  wale ke samne value assing kar rahe h
+                delete d;
+                temp=head;
+            }
+            else
+            temp=temp->next;
+        }
+        return head;
+    }
+    
+    
+    
+    
+    //////////////////////////
+     via recursion 
+     
+     
+     
+       Node *compute(Node *head)
+    {
+        // your code goes here
+        if(head->next == NULL)
+           return head;
+           
+           
+        Node* temp = compute(head->next);
+        
+        if(head->data >= temp->data)
+        {
+            head->next = temp;
+            return head;
+        }
+        
+        else
+           return temp;
+    }
+    
