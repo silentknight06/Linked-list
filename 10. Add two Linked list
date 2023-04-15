@@ -1,3 +1,62 @@
+   
+   ///////////////////// first methord  LEETCODE ////////////// isem qn me likha huss h ki  no reverse list me store ho raha h so 
+   reverse karne ku jaroorat nahi h isem 
+   
+   
+   
+   
+   ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+       
+        ListNode* dummy= new ListNode(0);
+         int carry=0;
+        ListNode* temp=dummy;
+    
+    while(l1 != NULL || l2 != NULL || carry != NULL){
+        int val1 = 0, val2 = 0;
+        if(l1 != NULL){
+            val1 = l1->val;
+             l1= l1->next;
+           
+        }
+        if(l2 != NULL){
+            val2 = l2->val;
+           l2 = l2->next;
+        }
+        int sum = val1+val2+carry;
+        carry  =sum/10;
+        int digit = sum%10;
+      
+        ListNode *node = new ListNode(digit);
+        temp->next = node;
+        temp = temp->next;
+    }
+        return dummy->next;
+    }
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
    step 1 :  reverse first element
    step2 :    reverse second elemtn
    step 3 : add both the list 
